@@ -1,4 +1,6 @@
+import 'package:counter_app/cubit/counter_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const Counter());
@@ -12,10 +14,12 @@ class Counter extends StatefulWidget {
 }
 
 class _CounterState extends State<Counter> {
-  int counter = 0;
+  final counterCubit = CounterCubit();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: const Text(
@@ -28,28 +32,24 @@ class _CounterState extends State<Counter> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
-              child: Text(
-                '$counter',
-                style:
-                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
+              child: BlocBuilder(
+                  bloc: counterCubit,
+                  builder: (context, counter) {
+                    return Text(
+                      '$counter',
+                      style: const TextStyle(
+                          fontSize: 30, fontWeight: FontWeight.bold),
+                    );
+                  }),
             ),
             ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    counter = counter + 1;
-                  });
-                },
+                onPressed: () => counterCubit.increment(),
                 child: const Text("Increase")),
             const SizedBox(
               height: 10,
             ),
             ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    counter = counter - 1;
-                  });
-                },
+                onPressed: () => counterCubit.decrement(),
                 child: Text("decrese"))
           ],
         ),
