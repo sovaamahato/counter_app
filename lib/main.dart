@@ -50,17 +50,9 @@ class _CounterState extends State<Counter> {
             ),
             ElevatedButton(
                 onPressed: () => counterCubit.decrement(),
-                child: Text("decrese"))
+                child: const Text("decrese"))
           ],
         ),
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: () {
-        //     setState(() {
-        //       counter = counter + 1;
-        //     });
-        //   },
-        //   child: Icon(Icons.add),
-        // ),
       ),
     );
     ;
