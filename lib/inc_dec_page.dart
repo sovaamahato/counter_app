@@ -26,6 +26,7 @@ class IncDecPage extends StatelessWidget {
           ElevatedButton(
               onPressed: () {
                 //counterCubit.decrement()
+                counterBloc.add(CounterDecremented());
               },
               child: const Text("decrese"))
         ]),
