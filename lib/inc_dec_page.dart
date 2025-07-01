@@ -15,7 +15,7 @@ class IncDecPage extends StatelessWidget {
               onPressed: () => counterCubit.increment(),
               child: const Text("Increase")),
           const SizedBox(
-            height: 10,
+            height: 11,
           ),
           ElevatedButton(
               onPressed: () => counterCubit.decrement(),

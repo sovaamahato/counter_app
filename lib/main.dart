@@ -25,6 +25,5 @@ class _CounterState extends State<Counter> {
       child: const MaterialApp(
           debugShowCheckedModeBanner: false, home: HomePage()),
     );
-    ;
   }
 }
