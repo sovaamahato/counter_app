@@ -21,7 +21,7 @@ class IncDecPage extends StatelessWidget {
               },
               child: const Text("Increase")),
           const SizedBox(
-            height: 10,
+            height: 11,
           ),
           ElevatedButton(
               onPressed: () {
